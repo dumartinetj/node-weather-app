@@ -66,7 +66,7 @@ app.get('/weather', (req, res) => {
             return res.send({ error })
         }
     
-        forecast(lat, lng, (error, { summary, temperature } = {}) => {
+        forecast(lat, lng, (error, { weather, temperature } = {}) => {
             if(error) {
                 return res.send({ error })
             }
@@ -74,8 +74,8 @@ app.get('/weather', (req, res) => {
             res.send({
                 location,
                 address,
-                weather: summary,
-                temperature: 'Il fait actuellement : ' + temperature + '°C'
+                weather,
+                temperature
             })
         })
     })

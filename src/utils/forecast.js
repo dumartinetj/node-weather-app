@@ -13,8 +13,8 @@ const forecast = (lat, lng, callback) => {
             callback('DarkSky Error  : ' + body.error)
         } else {
             callback(undefined, {
-                summary: body.daily.data[0].summary,
-                temperature: body.currently.temperature
+                weather: body.daily.data[0].summary,
+                temperature: 'Il fait actuellement ' + body.currently.temperature + '°C (Min : ' + body.daily.data[0].temperatureMin + '°C - Max : ' + body.daily.data[0].temperatureMax + '°C)'
             })
         }
     })
